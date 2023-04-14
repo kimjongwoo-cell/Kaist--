@@ -49,7 +49,18 @@ Predicting Module
 yt+1 = σ(WT 5 [et+1 ⊕ het ] + b5),
 
 EXPERIMENT
+• RQ1 Does our proposed LPKT model keep the consistency of students’ changing knowledge state to their learning process? 
+LPKT는 학생의 학습 과정을 모델링하기 위해 제안된 방법으로, 학생들의 학습 상태를 합리적으로 추적할 수 있다는 것을 보여준다. Figure 3에서는 Figure 1의 동일한 학생의 지식 상태 변화가 LPKT에 의해 추적되었다. 이를 통해 LPKT가 학생들이 틀리거나 맞은 학습 상호작용에서 얻은 학습 이익을 캡처할 수 있으며, 학생이 특정 개념을 연습하지 않으면 해당 개념에 대한 지식 상태가 점차적으로 감소한다는 것을 확인할 수 있다. 또한 학생의 지식 상태 변화 과정은 그의 학습 과정과 일관성이 있으며, 학생이 새로운 지식을 습득함에 따라 지식 상태가 증가하고, 마지막 학습 상호작용에서는 일정 수준의 감소가 나타난다는 것을 알 수 있다.
+• RQ2 Does our proposed LPKT model outperform the state-ofthe-art knowledge model on student performance prediction?
+따라서 Table 2에서는 모든 벤치마크 모델과 LPKT를 학생 성적 예측에서 비교하고 5개의 테스트 폴드에서의 평균 결과를 보고한다. 모든 데이터셋에서 광범위한 실험을 수행하여 모든 모델의 성능을 종합적으로 평가하기 위해 RMSE, AUC, ACC 및 Pearson 상관계수(r2) 제곱으로 성능을 평가했다.
+• RQ3 How does the learning module, forgetting module, and time information in LPKT impact the knowledge tracing result?
+LPKT에는 3가지 변형이 있으며, 각각은 LPKT의 하나의 모듈을 제거하여 만들어졌습니다. 실험 결과, Forgetting 모듈을 고려하지 않는다면 예측 결과가 가장 크게 감소하며, Learning gain을 고려하는 것이 Learning outcome만 고려하는 것보다 더 좋은 예측 결과를 보입니다. Answer time과 Interval time 정보는 빠뜨리면 학습 과정을 정확하게 모델링하기 어렵습니다. 또한, LPKT는 AKT보다 학습 시퀀스가 짧을 때 더 나은 결과를 보이며, 이는 LPKT가 학습 과정을 더 잘 모델링하기 때문입니다.
+• RQ4 Can LPKT learn meaningful representations of exercises? 
+LPKT는 exercise embeddings를 무작위로 초기화하고 학습합니다. 그 결과로, 학습된 exercise embeddings는 의미 있는 cluster로 나뉘며 이는 교육 전문가들에게 유용한 정보를 제공할 수 있습니다. Figure 5에서는 ASSISTchall 데이터셋에서 100개의 exercise embeddings을 T-SNE 방법을 이용하여 시각화한 결과를 보여줍니다. 이를 통해 비슷한 KC를 가진 문제가 유사한 부분에 위치 한것을 알 수 있습니다. 따라서 LPKT는 exercise embeddings을 어느정도 잘하고 있다고 판단 할 수 있습니다
+
+
 CONCULSION
+본 논문에서는 학생들의 학습 과정을 모델링하는 새로운 지식 추적 패러다임을 탐구하고 Learning Process-consistent Knowledge tracing (LPKT)이라는 새로운 모델을 제안하였다. 학생들의 학습 과정을 효과적으로 모델링하기 위해 학습 셀, 인터벌 타임, 학습 게이트, 망각 게이트 등을 도입하였고, 이를 바탕으로 다양한 실험을 진행하여 LPKT이 다른 KT 방법보다 더 높은 정확도와 해석 가능성을 보이며 학습 과정을 모델링하는 새로운 연구 방향을 제시하였다.
 AUTHOR INFORMATION
 
 REFERENCE
