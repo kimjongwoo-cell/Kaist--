@@ -93,19 +93,21 @@ $LG_t$를 계산한 후, 학생들의 지식 상태에 추가된 역할을 하�
 
 $\Gamma_{t}^{f} = \sigma\left(W_{4}^T \left[h_{t-1} \oplus LG_{t} \oplus it_{t} \right] + b{4}\right)$
 
-$h_t = LG_t + \Gamma^{f}_{t} · h_{t−1}$.
+$h_t = LG_t + \Gamma^{f}_{t} · h_{t−1
+
 
 3.3.3 Predicting Module
 
+<img scr="./figure5.png">
 
-	yt+1 = σ(WT 5 [et+1 ⊕ het ] + b5),
-	
-	
+앞선 두개의 module을 통해 파악 할 수 있는 학생의 learning gain(지식 상태)와 망각의 효과를 사용하여 학생의 지식 상태 $h_t$를 계산합니다. 계산된 $h_t$를 통해서 학생의 다음연습문제 $e_{t+1}$에 대한 풀이 여부를 예측 할 수 있습니다. 	
+
+$y_{t+1} = \sigma\left(W_{5}^T \left[e_{t+1} \oplus h_t \right] + b{5}\right)$
 	
 
 4.EXPERIMENT
 
-• RQ1 Does our proposed LPKT model keep the consistency of students’ changing knowledge state to their learning process? 
+4.1 RQ1 Does our proposed LPKT model keep the consistency of students’ changing knowledge state to their learning process? 
 LPKT는 학생의 학습 과정을 모델링하기 위해 제안된 방법으로, 학생들의 학습 상태를 합리적으로 추적할 수 있다는 것을 보여준다. Figure 3에서는 Figure 1의 동일한 학생의 지식 상태 변화가 LPKT에 의해 추적되었다. 이를 통해 LPKT가 학생들이 틀리거나 맞은 학습 상호작용에서 얻은 학습 이익을 캡처할 수 있으며, 학생이 특정 개념을 연습하지 않으면 해당 개념에 대한 지식 상태가 점차적으로 감소한다는 것을 확인할 수 있다. 또한 학생의 지식 상태 변화 과정은 그의 학습 과정과 일관성이 있으며, 학생이 새로운 지식을 습득함에 따라 지식 상태가 증가하고, 마지막 학습 상호작용에서는 일정 수준의 감소가 나타난다는 것을 알 수 있다.
 • RQ2 Does our proposed LPKT model outperform the state-ofthe-art knowledge model on student performance prediction?
 따라서 Table 2에서는 모든 벤치마크 모델과 LPKT를 학생 성적 예측에서 비교하고 5개의 테스트 폴드에서의 평균 결과를 보고한다. 모든 데이터셋에서 광범위한 실험을 수행하여 모든 모델의 성능을 종합적으로 평가하기 위해 RMSE, AUC, ACC 및 Pearson 상관계수(r2) 제곱으로 성능을 평가했다.
